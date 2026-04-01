@@ -1,16 +1,13 @@
-import java.util.*;
-
+package dal;
 public class Main {
+
     public static void main(String[] args) {
-        List<Animal> source = new ArrayList<>();
-        source.add(new Animal("arslan"));
-        source.add(new Animal("togoru"));
+        Library lib = new Library();
+        lib.addBook(new Book("suun zam", 2020));
+        lib.addBook(new Book("ugluuni nom", 1999));
 
-        List<Animal> destination = new ArrayList<>();
-
-        Zoo<Animal> zoo = new Zoo<>();
-        zoo.transferAnimals(source, destination);
-
-        destination.forEach(System.out::println);
+        for (Book b : lib.shelfFrom(2000)) {
+            System.out.println(b);
+        }
     }
 }
